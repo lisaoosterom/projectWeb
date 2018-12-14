@@ -24,8 +24,6 @@ html {
 /* header
 ------------------------------------- */
 
-header a {}
-
 header img {
     overflow: hidden;
     background-color: #1a1f3a;
@@ -33,6 +31,46 @@ header img {
     max-height: 50px;
     padding-left: 10px;
     padding-top: 5px;
+}
+
+
+/* nav
+------------------------------------- */
+
+nav {
+    background-color: #e6e6e6;
+    height: 130px;
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    z-index: 99;
+}
+
+nav ul {
+    overflow: hidden;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+nav li {
+    background-color: inherit;
+    float: left;
+    padding: 14px 16px;
+}
+
+nav img {
+    width: 40px;
+    height 40px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #4c494a;
+}
+
+nav a:visited {
+    color: #0f9eb2;
 }
 
 
@@ -94,22 +132,53 @@ form {
     position: relative;
 }
 
-h2 {
+legend {
     font-size: 16px;
     color: #51B5C9;
     font-size: bold;
 }
 
-.radioButton {
+
+/* sorteren */
+
+input[type="radio"] {
+    display: none;
+}
+
+label {
+    padding-left: 20px;
+    cursor: pointer;
+    background-image: url(radioButton.svg);
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: 15px;
+}
+
+input[type='radio']:checked+label {
+    background-image: url(Oval.png);
+}
+
+
+/* filtreren op */
+
+select {
+    background-color: #d4f1f5;
+    border-color: #0f9eb2;
+    color: #55565a;
+    font-size: 16px;
+    padding: 10px;
+    margin: 20px;
+}
+
+option {
     display: inline;
     margin-left: 10px;
     margin-bottom: 15px;
     border-color: #0f9eb2;
 }
 
-label {
-    color: #4c494a;
-}
+
+/* toon resultaten knop*/
 
 input[type=submit] {
     background-color: #fcdd11;
@@ -122,19 +191,6 @@ input[type=submit] {
     position: absolute;
     bottom: 5%;
     right: 2%;
-}
-
-input:checked {
-    background-color: #0f9eb2;
-    ;
-}
-
-select {
-    background-color: #d4f1f5;
-    border-color: #0f9eb2;
-    color: #55565a;
-    font-size: 16px;
-    padding: 10px;
 }
 
 
@@ -151,18 +207,13 @@ h3 {
     text-align: center;
 }
 
-.kleineStreep {
+h3+div {
     width: 30px;
     background-color: rgb(36, 181, 201);
     height: 3px;
     margin-left: 48%;
     margin-top: 5px;
     border-radius: 3px;
-}
-
-h3,
-.kleineStreep {
-    align-content: center;
 }
 
 .Container {
@@ -225,6 +276,10 @@ article button {
 }
 
 article button:hover {
+    background-image: url(heart-fill.svg);
+}
+
+article button:checked {
     background-image: url(heart-fill.svg);
 }
 
