@@ -14,23 +14,78 @@ html,
 body {
     width: 100%;
     overflow-x: hidden;
+    font-size: 16px;
 }
 
 html {
-    font-size: 100%;
+    font-size: 16px;
 }
 
+@font-face {
+    font-family: Aspect;
+    src: url(../fonts/aspect.otf);
+}
+
+@font-face {
+    font-family: Quicksant-Regular;
+    src: url(../fonts/Quicksant-Regualar.ttf);
+}
+
+@font-face {
+    font-family: Quicksant-Light;
+    src: url(../fonts/Quicksand-Light.ttf);
+}
+
+@font-face {
+    font-family: Quicksant-Bold;
+    src: url(../fonts/Quicksand-Bold.ttf);
+}
+
+font-family: 'Quicksand',
+sans-serif;
 
 /* header
 ------------------------------------- */
 
+header {
+    background: #06183d;
+    height: 20.875em;
+}
+
+header a {
+    background-image: url(../images/logo-desktop.png);
+    height: 6.625em;
+    background-repeat: no-repeat;
+}
+
 header img {
-    overflow: hidden;
-    background-color: #1a1f3a;
+    margin: 1.25em;
+}
+
+h1 {
+    font: Quicksand;
+    font-weight: lighter;
+    color: #51B5C9;
+    padding: 1.25em;
+    background: #D3F1F5;
+    text-transform: uppercase;
+    font-size: 2.7em;
+    position: relative;
+    top: 1.5em;
     width: 100%;
-    max-height: 50px;
-    padding-left: 10px;
-    padding-top: 5px;
+}
+
+@media screen and (max-width: 40em) {
+    header {
+        height: 11.250em;
+    }
+    header a {
+        background-image: url(../images/logo.svg);
+        height: 3.750em;
+    }
+    h1 {
+        font-size: 2em;
+    }
 }
 
 
@@ -38,80 +93,119 @@ header img {
 ------------------------------------- */
 
 nav {
-    background-color: #e6e6e6;
-    height: 130px;
+    background-color: #06183d;
+    height: 3.25em;
     position: fixed;
-    bottom: 0px;
+    top: 3em;
     width: 100%;
-    z-index: 99;
 }
 
 nav ul {
-    overflow: hidden;
     list-style: none;
-    display: flex;
-    justify-content: center;
+    display: block;
+    justify-content: left;
 }
 
 nav li {
-    background-color: inherit;
     float: left;
     padding: 14px 16px;
 }
 
 nav img {
-    width: 40px;
-    height 40px;
+    display: none;
 }
 
 nav a {
     text-decoration: none;
-    color: #4c494a;
-}
-
-nav a:visited {
-    color: #0f9eb2;
-}
-
-
-/* banner
-------------------------------------- */
-
-#banner {
-    background-image: url(photoLezen.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    padding: 5rem 5rem 0 5rem;
-    height: calc(50vh - 3.5rem);
-    min-height: 10rem;
-    margin: -10px;
-    max-height: 200px;
-}
-
-h1 {
     color: #ffffff;
-    font-size: 2.25em;
-    font-size: 3vw;
-    padding-right: 40%;
 }
 
-#banner a {
-    height: 75px;
-    background-color: #fcdd11;
-    border-radius: 4px;
-    box-shadow: rgb(222, 194, 4) 0px 2px 0px 0px, rgba(0, 0, 0, 0.2) 0px 3px 2px 0px;
-    font-size: 20px;
-    text-align: center;
-    text-decoration: none;
-    color: #55565a;
-    padding: 5px 10px;
+nav a:hover {
+    color: #9B9B9B;
 }
+
+.activeNav {
+    background-color: #41455B;
+    height: 7px;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    border-top-color: #FADB00;
+}
+
+@media screen and (max-width: 400px) {
+    nav {
+        background-color: #303F5D;
+        height: 4em;
+        position: fixed;
+        top: 680px;
+        width: 100%;
+        z-index: 99;
+    }
+    nav ul {
+        overflow: hidden;
+        list-style: none;
+        display: flex;
+        justify-content: center;
+    }
+    nav li {
+        display: block;
+    }
+    nav img {
+        width: 30px;
+        height 30px;
+        display: block;
+        margin-top: 1px;
+    }
+    nav a {
+        text-decoration: none;
+        color: #fff;
+    }
+    .activeNav {
+        background-color: #303F5D;
+        font-weight: bold;
+    }
+}
+
+
+/* streep
+------------------------------------- */
 
 #streep {
     width: 100%;
     background-color: rgb(36, 181, 201);
-    height: 10px;
+    height: 6px;
+    position: fixed;
+    top: 191px;
+    position: sticky;
+}
+
+
+/* hide form
+------------------------------------- */
+
+input#FilterSorteerToggle~form {
+    display: none;
+}
+
+input#FilterSorteerToggle:checked~form {
+    display: block;
+}
+
+#FilterSorteerToggle {
+    display: none;
+}
+
+label[for=FilterSorteerToggle] {
+    background-image: none;
+    background-color: #d5ecf2;
+    border-color: #0f9eb2;
+    top: 200px;
+    width: 200px;
+    position: fixed;
+    height: 30px;
+    position: sticky;
+    margin-left: 10%;
+    z-index: 101;
 }
 
 
@@ -129,7 +223,9 @@ form {
     padding: 10px;
     max-width: 950px;
     padding-left: 7%;
-    position: relative;
+    position: fixed;
+    top: 210px;
+    z-index: 100;
 }
 
 legend {
@@ -197,13 +293,8 @@ input[type=submit] {
 /* resultaten / aanbeovlen / top 10
 ------------------------------------- */
 
-@font-face {
-    font-family: AspectDemo;
-    src: url(DemoAspect-Rg.otf);
-}
-
 h3 {
-    font-family: AspectDemo;
+    font-family: Aspect;
     text-align: center;
 }
 
@@ -294,4 +385,20 @@ h4 {
     font-weight: bold;
     margin-left: 20px;
     margin-bottom: 0px;
+}
+
+
+/* artcle media quuries */
+
+@media only screen and (max-width: 600px) {
+    article {
+        border-radius: 14px 14px 8px 8px;
+        border-color: #55565a;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 5px 0px;
+        width: 90%;
+        height: 420px;
+        margin: 4px;
+        position: relative;
+        bottom: 0px;
+    }
 }

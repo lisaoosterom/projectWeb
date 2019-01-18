@@ -6,6 +6,7 @@
     <title>99 verhalen van Eurostar</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/verhalen.css">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
 
 </head>
 
@@ -14,27 +15,25 @@
 ================================================== -->
     <header>
 
-        <a href="index.html"><img src="images/logo.svg" alt="logoEurostar"></a>
+        <a href="index.html"></a>
+
+
+        <h1>99 Verhalen voor onderweg</h1>
+        <!-- <a href="">Verras me</a> -->
+
+
+
     </header>
-
-    <div id="banner">
-
-        <h1>99 VERHALEN VOOR ONDERWEG</h1>
-        <a href="">Verras me</a>
-
-    </div>
-    <div id="streep"></div>
-
     <!-- nav
 ================================================== -->
     <nav>
         <ul>
-            <li>
+            <li class="activeNav">
                 <a href="..."><img src="images/mijnVerhalen.svg" alt="verhalen">Home</a>
             </li>
 
 
-            <li>
+            <li class="mijnVerhalen">
                 <a href="..."><img src="images/favorieteVerhalen.svg" alt="favoVerhalen">Mijn verhalen</a>
             </li>
             <li>
@@ -44,20 +43,21 @@
     </nav>
 
 
+
     <!-- filter en sorteren
 ================================================== -->
     <aside>
-        <input type="">
-        <form action="checkbox" name="filterSorteer" value="filterSorteer">
-            <legend>Filter en Sorteren</legend>
-            Sorteren op: <br>
+        <label for="FilterSorteerToggle">Filtreer en Sorteer</label><input type="checkbox" value="" id="FilterSorteerToggle">
+        <form>
+
+            <legend> Sorteren op:</legend>
             <input type="radio" name="sorteer" value="A - Z" checked class="radioButton" id="aZ">
             <label for="aZ">A - Z</label>
             <input type="radio" name="sorteer" value="Hoogste beoordeling" class="radioButton" id="hoogsteBeoordeling">
             <label for="hoogsteBeoordeling">Hoogste beoordeling</label>
             <input type="radio" name="sorteer" value="Meest gelezen" class="radioButton" id="MeestGelezen">
             <label for="MeestGelezen">Meeste gelezen</label>
-            <br>Filtreren op: <br>
+            <legend>Filtreren op:</legend>
 
             <select select name="genre">
   <option value="AlleVerhalen">Alle verhalen(99)</option>
@@ -79,100 +79,103 @@
     <main>
         <!-- resultaten artikelen
 ================================================== -->
-        <h3>Resultaten</h3>
-        <div class="kleineStreep"></div>
-        <section class="Container">
+        <section>
+            <h3>Best beoordeeld</h3>
+            <div class="kleineStreep"></div>
+
 
 
             <article>
-                <img src="images/fotoVerhalen.png" alt="fotoVerhaal">
+                <img src="images/paranoiaLogo.jpg" alt="fotoVerhaal">
                 <button></button>
                 <h4>Paranoia</h4>
                 <p>Ik sluip de bus uit. Kop in de kraag. Ik maak me klein en duw m’n zoon vooruit. Hij slaapt. Eindelij...</p>
 
-                <a href="...">LEES VERDER</a>
+                <a href="...">Lees verder</a>
             </article>
             <article>
-                <img src="images/fotoVerhalen.png" alt="fotoVerhaal">
+                <img src="images/PoepenLogo.jpg" s alt="fotoVerhaal">
                 <button></button>
-                <h4>Paranoia</h4>
-                <p>Ik sluip de bus uit. Kop in de kraag. Ik maak me klein en duw m’n zoon vooruit. Hij slaapt. Eindelij...</p>
+                <h4>Presentator Presentator die ten onrechte denkt aansluiting te hebben gevonden bij ‘de kids’</h4>
+                <p>Yo kids! Vet cool dat je weer kijkt! Hoor mijn verhaal:</p>
 
-                <a href="...">LEES VERDER</a>
+                <a href="...">Lees verder</a>
             </article>
             <article>
-                <img src="images/fotoVerhalen.png" alt="fotoVerhaal">
+                <img src="images/vrijdagDe13.jpg" alt="fotoVerhaal">
                 <button></button>
-                <h4>Paranoia</h4>
-                <p>Ik sluip de bus uit. Kop in de kraag. Ik maak me klein en duw m’n zoon vooruit. Hij slaapt. Eindelij...</p>
+                <h4>Vrijdag de 13e</h4>
+                <p>Bij het uitstappen van de bus waait mijn jas open, precies op het moment dat de
+                </p>
 
-                <a href="...">LEES VERDER</a>
+                <a href="...">Lees verder</a>
             </article>
-
-        </section>
-        <section class="Container">
-            <article>
-                <img src="images/fotoVerhalen.png" alt="fotoVerhaal">
-                <button></button>
-                <h4>Paranoia</h4>
-                <p>Ik sluip de bus uit. Kop in de kraag. Ik maak me klein en duw m’n zoon vooruit. Hij slaapt. Eindelij...</p>
-
-                <a href="...">LEES VERDER</a>
-            </article>
-            <article>
-                <img src="images/fotoVerhalen.png" alt="fotoVerhaal">
-                <button></button>
-                <h4>Paranoia</h4>
-                <p>Ik sluip de bus uit. Kop in de kraag. Ik maak me klein en duw m’n zoon vooruit. Hij slaapt. Eindelij...</p>
-
-                <a href="...">LEES VERDER</a>
-            </article>
-            <article>
-                <img src="images/fotoVerhalen.png" alt="fotoVerhaal">
-                <button></button>
-                <h4>Paranoia</h4>
-                <p>Ik sluip de bus uit. Kop in de kraag. Ik maak me klein en duw m’n zoon vooruit. Hij slaapt. Eindelij...</p>
-
-                <a href="...">LEES VERDER</a>
-            </article>
-
         </section>
 
-        <!-- aanbevolen artikelen (3)
+        <!-- 99 verhalen > filter uit
 ================================================== -->
 
-        <h3>Best beoordeelde verhalen</h3>
-        <div class="kleineStreep"></div>
+        <section>
+            <h3>99 verhalen</h3>
+            <div class="kleineStreep"></div>
 
-        <section class="Container">
 
             <article>
-                <img src="images/fotoVerhalen.png" alt="fotoVerhaal">
-                <h4>Paranoia</h4>
+                <img src="images/gefrustreerd.jpg" alt="fotoVerhaal">
                 <button></button>
-                <p>Ik sluip de bus uit. Kop in de kraag. Ik maak me klein en duw m’n zoon vooruit. Hij slaapt. Eindelij...</p>
+                <h4>Gefrustreerd</h4>
+                <p>Ik stap uit die godverdomde stinkbus. De mensen krioelen als mieren over het
+                </p>
 
-                <a href="...">LEES VERDER</a>
+                <a href="...">Lees verder</a>
             </article>
             <article>
-                <img src="images/fotoVerhalen.png" alt="fotoVerhaal">
+                <img src="images/telegrafisch.jpg" alt="fotoVerhaal">
                 <button></button>
-                <h4>Paranoia</h4>
-                <p>Ik sluip de bus uit. Kop in de kraag. Ik maak me klein en duw m’n zoon vooruit. Hij slaapt. Eindelij...</p>
+                <h4>Telegrafisch</h4>
+                <p>BUS STOPT STOP NAAR BIBLIOTHEEK VOOR STIJLOEFENINGEN STOP VAN RAYMOND QUENEAU STOP </p>
 
-                <a href="...">LEES VERDER</a>
+                <a href="...">Lees verder</a>
             </article>
             <article>
-                <img src="images/fotoVerhalen.png" alt="fotoVerhaal">
+                <img src="images/alzheimer.jpg" alt="fotoVerhaal">
+                <button></button>
+                <h4>Alzheimer</h4>
+                <p>Ik stap uit, euh... Hoe heet het? Zo’n vervoersdinges op wielen. Van de gemeente. Wit met
+                </p>
+
+                <a href="...">Lees verder</a>
+            </article>
+
+            <article>
+                <img src="images/vrijdagDe13.jpg" alt="fotoVerhaal">
+                <button></button>
+                <h4>Vrijdag de 13e</h4>
+                <p>Bij het uitstappen van de bus waait mijn jas open, precies op het moment dat de
+                </p>
+
+                <a href="...">Lees verder</a>
+            </article>
+
+
+            <article>
+                <img src="images/alzheimer.jpg" alt="fotoVerhaal">
+                <button></button>
+                <h4>Alzheimer</h4>
+                <p>Ik stap uit, euh... Hoe heet het? Zo’n vervoersdinges op wielen. Van de gemeente. Wit met
+                </p>
+
+                <a href="...">Lees verder</a>
+            </article>
+            <article>
+                <img src="images/paranoiaLogo.jpg" alt="fotoVerhaal">
                 <button></button>
                 <h4>Paranoia</h4>
                 <p>Ik sluip de bus uit. Kop in de kraag. Ik maak me klein en duw m’n zoon vooruit. Hij slaapt. Eindelij...</p>
 
-                <a href="...">LEES VERDER</a>
+                <a href="...">Lees verder</a>
             </article>
         </section>
-        <!-- meest gelezen afgelopen week
-================================================== -->
 
     </main>
     <!-- footer
