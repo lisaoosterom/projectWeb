@@ -14,11 +14,11 @@ html,
 body {
     width: 100%;
     overflow-x: hidden;
-    font-size: 16px;
+    font-size: 1em;
 }
 
 html {
-    font-size: 16px;
+    font-size: 1em;
 }
 
 @font-face {
@@ -47,44 +47,72 @@ sans-serif;
 /* header
 ------------------------------------- */
 
-header {
-    background: #06183d;
-    height: 20.875em;
+header img {
+    position: fixed;
+    top: 0em;
+    margin: 1em;
+    background-color: #06183d;
+    z-index: 200;
 }
 
 header a {
-    background-image: url(../images/logo-desktop.png);
-    height: 6.625em;
-    background-repeat: no-repeat;
+    width: 100%;
+    height: 8.5em;
+    background-color: #06183d;
+    position: fixed;
+    top: 0em;
+    z-index: 200;
+    padding: 1em;
+    padding-bottom: 0em;
 }
 
-header img {
-    margin: 1.25em;
-}
 
-h1 {
+/* banner
+------------------------------------- */
+
+header h1 {
     font: Quicksand;
-    font-weight: lighter;
-    color: #51B5C9;
-    padding: 1.25em;
+    font-weight: bold;
+    color: #06183d;
     background: #D3F1F5;
     text-transform: uppercase;
     font-size: 2.7em;
-    position: relative;
-    top: 1.5em;
     width: 100%;
+    margin-top: 3em;
+    padding: 1em;
 }
 
-@media screen and (max-width: 40em) {
-    header {
-        height: 11.250em;
-    }
-    header a {
-        background-image: url(../images/logo.svg);
-        height: 3.750em;
+@media screen and (max-width: 34em) {
+    header img {
+        height: 2em;
+        position: fixed;
+        top: 0px;
+        margin-bottom: 0em;
     }
     h1 {
         font-size: 2em;
+        position: inherit;
+        top: 1.563em;
+        padding-left: 0em;
+    }
+}
+
+@media screen and (max-width: 25em) {
+    header h1 {
+        font-size: 2em;
+        margin-top: 2em;
+    }
+    header img {
+        visibility: hidden;
+    }
+    header a {
+        background-image: url(../images/eurostarLogoSmall.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 100%;
+        background-size: 70%;
+        padding-left: 1em;
+        height: 3em;
     }
 }
 
@@ -94,21 +122,22 @@ h1 {
 
 nav {
     background-color: #06183d;
-    height: 3.25em;
+    height: 3.30em;
     position: fixed;
-    top: 3em;
+    top: 6em;
     width: 100%;
+    height: 3.5em;
+    z-index: 200;
 }
 
 nav ul {
     list-style: none;
     display: block;
-    justify-content: left;
 }
 
 nav li {
     float: left;
-    padding: 14px 16px;
+    padding: 1em;
 }
 
 nav img {
@@ -126,18 +155,18 @@ nav a:hover {
 
 .activeNav {
     background-color: #41455B;
-    height: 7px;
-    border-top-left-radius: 7px;
-    border-top-right-radius: 7px;
+    height: 0.438em;
+    border-top-left-radius: 0.438em;
+    border-top-right-radius: 0.438em;
     border-top-color: #FADB00;
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 25em) {
     nav {
         background-color: #303F5D;
         height: 4em;
         position: fixed;
-        top: 680px;
+        top: 30.375em;
         width: 100%;
         z-index: 99;
     }
@@ -146,19 +175,28 @@ nav a:hover {
         list-style: none;
         display: flex;
         justify-content: center;
-    }
-    nav li {
-        display: block;
+        width: 95%;
+        margin-top: 0.063em;
+        font-size: 0.9em;
+        margin-left: 1%;
     }
     nav img {
-        width: 30px;
-        height 30px;
+        width: 2em;
+        margin-left: 1%;
         display: block;
-        margin-top: 1px;
+        position: fixed;
+        top: 34.5em;
     }
     nav a {
         text-decoration: none;
         color: #fff;
+        position: fixed;
+        top: 36.5em;
+        align-content: center;
+    }
+    nav li {
+        align-content: center;
+        width: 30%;
     }
     .activeNav {
         background-color: #303F5D;
@@ -167,203 +205,292 @@ nav a:hover {
 }
 
 
-/* streep
+/* form filter
 ------------------------------------- */
 
-#streep {
-    width: 100%;
-    background-color: rgb(36, 181, 201);
-    height: 6px;
-    position: fixed;
-    top: 191px;
+aside {
+    background: #f2f2f2;
+    max-width: 12em;
+    min-height: 18em;
+    float: left;
     position: sticky;
+    top: 8em;
+    left: 0em;
+    border-radius: 0em 0.875em 0.500em 0px;
 }
 
 
-/* hide form
-------------------------------------- */
+/* style radio buttons  */
 
-input#FilterSorteerToggle~form {
-    display: none;
+aside input[type=checkbox] {
+    visibility: hidden;
 }
 
-input#FilterSorteerToggle:checked~form {
-    display: block;
+aside input[type=checkbox]+label {
+    display: inline-block;
+    padding: 1em;
+    background-image: url(../images/checkboxUnchecked.svg);
+    background-repeat: no-repeat;
+    background-position: left;
+    float: left;
+    margin: 0.5em;
+}
+
+aside input[type=checkbox]:checked+label {
+    background-image: url(../images/checkboxChecked.svg);
+}
+
+label[for="FilterSorteerToggle"] {
+    font: Aspect;
+    font-weight: 600;
+    margin: 1em;
+    margin-left: 1em;
+    padding-top: 1em;
+}
+
+#FiltersToepassen {
+    background-color: #FADB00;
+    color: #55565A;
+    font-weight: bold;
+    text-transform: uppercase;
+    width: 90%;
+    height: 3em;
+    align-content: center;
+    margin-left: 5%;
+    margin-bottom: 1em;
+    border-radius: 4px;
+    box-shadow: 0, 2, 0, 4 #000000;
+}
+
+#FiltersToepassen:hover {
+    background-color: #FCE11B;
+    box-shadow: 0;
 }
 
 #FilterSorteerToggle {
-    display: none;
+    visibility: hidden;
 }
 
-label[for=FilterSorteerToggle] {
-    background-image: none;
-    background-color: #d5ecf2;
-    border-color: #0f9eb2;
-    top: 200px;
-    width: 200px;
-    position: fixed;
-    height: 30px;
-    position: sticky;
-    margin-left: 10%;
-    z-index: 101;
+@media only screen and (max-width: 25em) {
+    aside {
+        min-width: 95%;
+        min-height: 0.8em;
+        position: relative;
+        top: 0em;
+        margin-left: 0.75em;
+        border-radius: 0.500em;
+    }
+    input#FilterSorteerToggle~form {
+        display: none;
+    }
+    input#FilterSorteerToggle:checked~form {
+        display: block;
+    }
+    #FilterSorteerToggle {
+        display: none;
+    }
+    label[for=FilterSorteerToggle] {
+        display: block;
+        margin-left: 5%;
+        font: Quicksand;
+        font-size: 1.25em;
+        width: 90%;
+        align-content: center;
+        background-image: url(../images/Triangle_filterSorteer.svg);
+        background-repeat: no-repeat;
+        background-position: right;
+        background-size: 10%;
+        padding: 0.1em;
+    }
+    #FiltersToepassen {
+        width: 60%;
+        justify-content: center;
+        margin-left: 20%;
+    }
 }
 
 
-/* form
+/* form sorteer
 ------------------------------------- */
 
-form {
-    border-radius: 4px;
-    background-color: #ffffff;
-    border: 2px solid #e6e6e6;
-    width: 70%;
-    height: 190px;
-    margin-left: 15%;
-    margin-top: 20px;
-    padding: 10px;
-    max-width: 950px;
-    padding-left: 7%;
-    position: fixed;
-    top: 210px;
-    z-index: 100;
+#SorteerOp {
+    float: right;
+    margin-top: 1em;
+    margin-right: 0.5em;
+    width: 12em;
 }
 
-legend {
-    font-size: 16px;
-    color: #51B5C9;
-    font-size: bold;
-}
-
-
-/* sorteren */
-
-input[type="radio"] {
-    display: none;
-}
-
-label {
-    padding-left: 20px;
-    cursor: pointer;
-    background-image: url(radioButton.svg);
-    background-repeat: no-repeat;
-    background-position: left;
-    background-size: 15px;
-}
-
-input[type='radio']:checked+label {
-    background-image: url(Oval.png);
-}
-
-
-/* filtreren op */
-
-select {
-    background-color: #d4f1f5;
-    border-color: #0f9eb2;
-    color: #55565a;
-    font-size: 16px;
-    padding: 10px;
-    margin: 20px;
-}
-
-option {
-    display: inline;
-    margin-left: 10px;
-    margin-bottom: 15px;
-    border-color: #0f9eb2;
-}
-
-
-/* toon resultaten knop*/
-
-input[type=submit] {
-    background-color: #fcdd11;
-    font-size: 18px;
+#SorteerOp select {
+    border-color: #55B9CC;
+    background-color: #D3F1F5;
+    font-size: 0.8em;
     color: #55565A;
-    border-radius: 4px;
-    padding: 20px, 20px;
-    margin-top: 10px;
-    width: 200px;
-    position: absolute;
-    bottom: 5%;
-    right: 2%;
+    border-radius: 0.25em;
+    height: 2em;
+    font: Quicksand;
+}
+
+h5,
+form #SorteerOp {
+    display: inline-block;
+}
+
+@media only screen and (max-width: 25em) {
+    #SorteerOp {
+        margin-right: 0em;
+    }
+}
+
+
+/* layout main
+------------------------------------- */
+
+main {
+    min-height: 20em;
+    max-width: 80%;
+    min-height: 300px;
+    float: left;
+}
+
+@media only screen and (max-width: 86.250em) {
+    main {
+        width: 62.5em;
+        min-width: 20em;
+    }
+    aside {
+        width: 12.5em;
+    }
+}
+
+@media only screen and (max-width: 25em) {
+    main {
+        width: 100%;
+        ;
+    }
+}
+
+
+/* container
+------------------------------------- */
+
+section .articles {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-left: 4.5em;
+    margin-right: 4.5em;
+    justify-content: center;
+    text-align: center;
+}
+
+@media only screen and (max-width: 25em) {
+    main {
+        margin-left: -2em;
+        margin-right: 0em;
+    }
 }
 
 
 /* resultaten / aanbeovlen / top 10
 ------------------------------------- */
 
-h3 {
+.Container h2,
+#Resultaten {
     font-family: Aspect;
+    color: #55565A;
     text-align: center;
+    margin-top: 3em;
 }
 
-h3+div {
-    width: 30px;
-    background-color: rgb(36, 181, 201);
-    height: 3px;
-    margin-left: 48%;
-    margin-top: 5px;
-    border-radius: 3px;
+h2::after {
+    content: "";
+    display: block;
+    height: 0.25em;
+    width: 3.750em;
+    background-color: rgb(124, 211, 223);
+    margin: 0.75em auto 0em;
 }
 
-.Container {
-    display: flex;
-    justify-content: center;
+@media only screen and (max-width: 25em) {
+    h2 {
+        margin-left: 5em;
+    }
 }
 
 
-/* article
+/* articles
 ------------------------------------- */
 
-main {
-    margin-top: 20px;
-}
-
 article {
-    border-radius: 14px 14px 8px 8px;
+    border-radius: 0.875em 0.875em 0.500em 0.500em;
     border-color: #55565a;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 5px 0px;
-    width: 300px;
-    height: 420px;
-    margin: 4px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0em 0.125em 0.313em 0em;
+    width: 18.750em;
+    height: 28.125em;
+    margin: 0.250em;
+    margin-bottom: 0.625em;
     position: relative;
 }
 
 article img {
-    width: 299px;
-    height: 186px;
-    border-radius: 14px 14px 8px 8px;
+    width: 100%;
+    height: 11.625em;
+    border-radius: 0.875em 0.875em 0.500em 0.500em;
+}
+
+article .verhaalLiken {
+    width: 100%;
+    visibility: hidden;
+}
+
+article input[type=checkbox]+label {
+    background-color: #D3F1F5;
+    border-radius: 100%;
+    background-image: url(../images/heartInActive.svg);
+    width: 2.500em;
+    height: 2.500em;
+    background-repeat: no-repeat;
+    margin-left: 6em;
+    position: absolute;
+    top: 29%;
+    background-size: 1.8em;
+    background-position: center;
+}
+
+article input[type=checkbox]:hover+label {
+    background-image: url(../images/heartHoover.svg);
+}
+
+article input[type=checkbox]:checked+label {
+    background-image: url(../images/heartChecked.svg);
 }
 
 article a {
-    height: 40px;
+    height: 2.500em;
+    width: 90%;
     background-color: #fcdd11;
-    border-radius: 4px;
-    box-shadow: rgb(222, 194, 4) 0px 2px 0px 0px, rgba(0, 0, 0, 0.2) 0px 3px 2px 0px;
+    border-radius: 0.250em;
+    box-shadow: rgb(222, 194, 4) 0em 0.125em 0em 0em, rgba(0, 0, 0, 0.2) 0em 0.188em 0.125em 0em;
     color: #55565a;
-    font-size: 16px;
+    font-size: 1em;
     text-align: center;
     display: flex;
     text-decoration: none;
-    margin: 10px;
+    margin: 0.188em;
     justify-content: center;
     align-items: center;
+    text-transform: uppercase;
+    font: Quicksand;
+    position: absolute;
+    font-weight: 400;
+    bottom: 0.625em;
+    left: 5%;
 }
 
-article button {
-    background-color: #0f9eb2;
-    border-radius: 100%;
-    background-image: url(Asset%203.svg);
-    width: 40px;
-    height: 40px;
-    background-repeat: no-repeat;
-    border-color: #0f9eb2;
-    position: absolute;
-    top: 33%;
-    right: 10px;
-    background-size: 30px;
-    background-position: center;
+article a:hover {
+    background-color: #FCE11B;
+    box-shadow: 0;
 }
 
 article button:hover {
@@ -375,30 +502,235 @@ article button:checked {
 }
 
 p {
-    font-size: 18px;
-    margin-left: 20px
-}
-
-h4 {
-    font-size: 22px;
-    color: #4a4949;
-    font-weight: bold;
+    font-size: 1.06em;
     margin-left: 20px;
-    margin-bottom: 0px;
+    font: Quiksand, sans serif;
+    text-align: left;
+}
+
+#Ptelegrafisch {
+    text-transform: uppercase;
+}
+
+h3 {
+    font-size: 1.3em;
+    color: #4a4949;
+    font: Quicksand;
+    font-weight: 550;
+    margin-bottom: 0em;
+    text-align: left;
+    margin-left: 1em;
+}
+
+.stars {
+    width: 100%;
+    height: 1em;
+    background-image: url(../images/star4.svg);
+    background-repeat: no-repeat;
+    margin: 1em;
 }
 
 
-/* artcle media quuries */
+/* inlog form
+------------------------------------- */
 
-@media only screen and (max-width: 600px) {
-    article {
-        border-radius: 14px 14px 8px 8px;
-        border-color: #55565a;
-        box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 5px 0px;
-        width: 90%;
-        height: 420px;
-        margin: 4px;
-        position: relative;
-        bottom: 0px;
+#LoginPage {
+    background-color: #e6e6e7;
+}
+
+#LoginPage header,
+#LoginPage main {
+    width: 25.000em;
+    margin: 1em auto;
+    font-size: 1em;
+    border-radius: 0.875em 0.875em 0.500em 0.500em;
+}
+
+#LoginPage h1 {
+    margin-bottom: 0;
+    font-size: 1.4em;
+    font-weight: normal;
+    text-align: center;
+    text-transform: uppercase;
+    color: #06183d;
+    font: Aspect;
+    background-color: #e6e6e7;
+}
+
+#LoginPage h1::before {
+    content: "";
+    display: block;
+    height: 0.23em;
+    width: 10em;
+    background-color: #06183d;
+    margin: 12px auto 9px;
+}
+
+#LoginPage h1::after {
+    content: "";
+    display: block;
+    height: 0.230em;
+    width: 10em;
+    background-color: #06183d;
+    margin: 0.750em auto 0em;
+}
+
+#LoginPage main {
+    background: #06183d;
+    padding: 1em;
+    width: 25em;
+    margin-left: 35%;
+    min-height: 10em;
+}
+
+#Inlog input {
+    box-sizing: border-box;
+    display: block;
+    width: 90%;
+    border-width: 0.063em;
+    border-style: solid;
+    padding: 1em;
+    outline: 0;
+    font-size: 0.95em;
+    margin: 1em;
+}
+
+#LoginPage input[type="email"],
+#LoginPage input[type="password"] {
+    background: #fff;
+    border-color: #bbb;
+    color: #555;
+}
+
+#LoginPage input[type="email"]:focus,
+#LoginPage input[type="password"]:focus {
+    border-color: #888;
+    background-color: #8890A2;
+    color: #fff;
+}
+
+#LoginPage input[type="email"]:invalid,
+#LoginPage input[type="password"]:invalid {
+    border-color: #D0021B;
+}
+
+#LoginPage input[type="submit"] {
+    background: #FADB00;
+    border-color: transparent;
+    color: #55565A;
+    cursor: pointer;
+    border-radius: 0.250em;
+}
+
+#LoginPage input[type="submit"]:hover {
+    background: #FCE11B;
+}
+
+#LoginPage input[type="submit"]:focus {
+    border-color: #05a;
+}
+
+@media only screen and (max-width: 25em) {
+    #LoginPage main {
+        width: 95%;
+        margin-left: 5%;
+    }
+    #LoginPage h1 {
+        font-size: 3em;
+        padding-left: 0%
+    }
+    #LoginPage h1::before {
+        content: "";
+        display: block;
+        height: 0.15em;
+        width: 4em;
+        background-color: #06183d;
+        margin-bottom: 0.1em;
+    }
+    #LoginPage h1::after {
+        content: "";
+        display: block;
+        height: 0.15em;
+        width: 4em;
+        background-color: #06183d;
+        margin-top: 0.1em;
+    }
+}
+
+
+/* bookMark
+------------------------------------- */
+
+header img.bookMarkIcon {
+    position: fixed;
+    top: 1em;
+    right: 1em;
+    background-color: #06183d;
+    z-index: 300;
+}
+
+
+/* Micro interactie bookmark
+------------------------------------- */
+
+.microInteractiebookmark {
+    width: 0.5em;
+    height: 0.5em;
+    border-radius: 50%;
+    background-color: #9B9B9B;
+    float: left;
+    transition: .3s 0.3s ease-out;
+}
+
+
+/* micro interactie beoordeling stereen
+------------------------------------- */
+
+#OndertitelVerhaal {
+    margin-left: 40%;
+}
+
+.verstuurKNOP {
+    height: 2.500em;
+    width: 15em;
+    font-size: 1em;
+    text-align: center;
+    display: flex;
+    text-decoration: none;
+    margin: 0.188em;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    font: Quicksand;
+    color: #55565A;
+    margin-left: 42%;
+}
+
+.beroodelingTekst {
+    color: #565759;
+    transition: .6s 0.3s ease-out;
+    position: relative;
+    bottom: 0em;
+    left: 45%;
+}
+
+.sterren {
+    width: 2em;
+    position: relative;
+    bottom: 0em;
+    left: 45%;
+}
+
+
+/* gif verhaal
+------------------------------------- */
+
+@media only screen and (max-width: 25em) {
+    #GifVerhaal {
+        width: 29em;
+        height: 40em;
+        margin: 0.5em;
+        margin-left: 0.5em;
+        margin-right: 0.5em;
     }
 }
